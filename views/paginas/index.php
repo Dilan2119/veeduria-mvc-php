@@ -47,7 +47,7 @@
             </picture>
           </div>
           <div class="texto-entrada">
-            <a href="entrada.html">
+            <a href="/admin">
               <h4>
                 Vigilancia Ciudadana: Observando el Horizonte del Zulia en Norte de
                 Santander
