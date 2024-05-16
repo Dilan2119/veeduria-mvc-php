@@ -6,7 +6,7 @@
             <picture>
                 <source srcset="build/img/Concejo.webp" type="image/webp">
                 <source srcset="build/img/Concejo.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/Concejo.jpg" alt="Texto Entrada Blog">
+                <img  src="build/img/Concejo.jpg" alt="Texto Entrada Blog">
             </picture>
         </div>
 
@@ -27,7 +27,7 @@
             <picture>
                 <source srcset="build/img/ZonaCafetera.webp" type="image/webp">
                 <source srcset="build/img/ZonaCafetera.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/ZonaCafetera.jpg" alt="Texto Entrada Blog">
+                <img  src="build/img/ZonaCafetera.jpg" alt="Texto Entrada Blog">
             </picture>
         </div>
 
@@ -48,7 +48,7 @@
             <picture>
                 <source srcset="build/img/Camilandia.webp" type="image/webp">
                 <source srcset="build/img/Camilandia.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/Camilandia.jpg" alt="Texto Entrada Blog">
+                <img  src="build/img/Camilandia.jpg" alt="Texto Entrada Blog">
             </picture>
         </div>
 
@@ -69,7 +69,7 @@
             <picture>
                 <source srcset="build/img/Educacion.webp" type="image/webp">
                 <source srcset="build/img/Educacion.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/Educacion.jpg" alt="Texto Entrada Blog">
+                <img  src="build/img/Educacion.jpg" alt="Texto Entrada Blog">
             </picture>
         </div>
 
@@ -88,7 +88,7 @@
             <picture>
                 <source srcset="build/img/Agricultura.webp" type="image/webp">
                 <source srcset="build/img/Agricultura.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/Agricultura.jpg" alt="Texto Entrada Blog">
+                <img  src="build/img/Agricultura.jpg" alt="Texto Entrada Blog">
             </picture>
         </div>
 
@@ -109,7 +109,7 @@
             <picture>
                 <source srcset="build/img/piedras.webp" type="image/webp">
                 <source srcset="build/img/piedras.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/piedras.jpg" alt="Texto Entrada Blog">
+                <img  src="build/img/piedras.jpg" alt="Texto Entrada Blog">
             </picture>
         </div>
 
@@ -129,7 +129,7 @@
             <picture>
                 <source srcset="build/img/areas.webp" type="image/webp">
                 <source srcset="build/img/areas.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/piedras.jpg" alt="Texto Entrada Blog">
+                <img  src="build/img/piedras.jpg" alt="Texto Entrada Blog">
             </picture>
         </div>
 
@@ -150,7 +150,7 @@
             <picture>
                 <source srcset="build/img/astilleros.webp" type="image/webp">
                 <source srcset="build/img/astilleros.jpg" type="image/jpeg">
-                <img loading="lazy" src="build/img/astilleros.jpg" alt="Texto Entrada Blog">
+                <img  src="build/img/astilleros.jpg" alt="Texto Entrada Blog">
             </picture>
         </div>
 

@@ -8,19 +8,22 @@
 .imagen-contacto {
   background-position: center center;
   background-size: cover;
-  padding: $separacion * 2 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 10px 10px 30px 15px #000000;
+  
 
   h2 {
     font-size: 4rem;
     font-weight: $black;
-    color: $blanco;
+    color: $amarillo;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
   }
 
   p {
-    font-size: 1.8rem;
-    color: $blanco;
+    font-size: 2.8rem;
+    color: $amarillo;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
   }
 }

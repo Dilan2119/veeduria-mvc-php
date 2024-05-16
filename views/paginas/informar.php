@@ -14,7 +14,7 @@
           alt="Imagen escudo"
         />
       </picture>
-      <h2>LLene el formulario de contacto</h2>
+      <h2>LLene el formulario</h2>
       <form class="formulario" action="/informar" method="POST">
         <fieldset>
           <legend>Informacion Personal</legend>

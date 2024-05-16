@@ -12,17 +12,17 @@
 
         
       <div class="alinear-derecha">
-        <a href="/proyectos" class="boton-verde">Ver todos</a>
+        <a href="/proyectos" class="boton-verde">Ver Mas Proyectos</a>
       </div>
     </section>
 
     <section class="imagen-contacto">
       <h2>Aporta a la transparencia de tu municipio</h2>
       <p>
-        Completa el formulario de informe para compartir tus inquietudes o
+        Completa el formulario  para compartir tus inquietudes o
         reportar cualquier anomalía.
       </p>
-      <a href="/informar" class="boton-amarillo">Informanos</a>
+      <a href="/informar" class="boton-amarillo">Denuncie</a>
     </section>
 
     <div class="contenedor seccion seccion-inferior">
@@ -53,7 +53,7 @@
                 Santander
               </h4>
               <p>
-                Escrito el: <span>27/03/2024</span>por:<span>Admin</span>
+                Escrito el: <span>27/03/2024</span>por:<span>Grupo Plan De Desarrollo</span>
               </p>
               <p>
                 Los binoculares simbolizan la vigilancia ciudadana, mientras observan

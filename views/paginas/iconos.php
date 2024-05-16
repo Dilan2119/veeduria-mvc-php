@@ -13,7 +13,7 @@
         </div>
         <div class="icono">
           <img src="build/img/icono2.svg" alt="Icono Precio" loading="lazy" />
-          <h3>Precio</h3>
+          <h3>Transparencia</h3>
           <p>
           Fiscalizando el buen uso de los recursos públicos, 
           promoviendo la eficiencia y la rendición de cuentas en cada inversión.
@@ -24,7 +24,8 @@
           <h3>Tiempo</h3>
           <p>
           Optimizando procesos y agilizando respuestas, 
-          valorando cada minuto invertido en la construcción de una sociedad más justa y participativa.
+          valorando cada minuto invertido en la construcción 
+          de una sociedad más justa y participativa.
           </p>
         </div>
       </div>
