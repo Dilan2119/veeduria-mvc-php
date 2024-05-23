@@ -19,7 +19,7 @@ if (!isset($inicio)) {
   <link rel="shortcut icon" href="/build/img/Escudo de el Zulia.png" type="image/x-icon">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-  <!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
