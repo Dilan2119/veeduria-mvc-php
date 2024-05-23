@@ -6,6 +6,7 @@ use MVC\Router;
 use Model\Proyecto;
 use Model\Contacto;
 use Model\Historial;
+use Model\ProyectosEjecucion;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class PropiedadController
@@ -13,17 +14,32 @@ class PropiedadController
 
     public static function index(Router $router)
     {
-        $proyectos = Proyecto::all();
+       // $proyectos = Proyecto::all();
 
-        $contacto = Contacto::all();
+       // $contacto = Contacto::all();
 
         //Muestra mensaje condicional
         $resultado = $_GET['resultado'] ?? null;
 
         $router->render('proyectos/admin', [
-            'proyectos' => $proyectos,
+            // 'proyectos' => $proyectos,
             'resultado' => $resultado,
-            'contactos' => $contacto,
+            // 'contactos' => $contacto,
+        ]);
+    }
+    public static function gestionproyectos(Router $router)
+    {
+        $proyectos = Proyecto::all();
+        $proyectos_ejecucion = ProyectosEjecucion::all();
+
+        //Muestra mensaje condicional
+        $resultado = $_GET['resultado'] ?? null;
+
+        $router->render('proyectos/gestionProyectos', [
+            'proyectos' => $proyectos,
+            'proyectos_ejecucion' => $proyectos_ejecucion,
+            'resultado' => $resultado
+            
         ]);
     }
     public static function crear(Router $router)

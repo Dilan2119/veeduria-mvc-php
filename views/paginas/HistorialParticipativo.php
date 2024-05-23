@@ -1,7 +1,7 @@
 <main class="contenedor seccion contenido-centrado">
-    <h1>Experiencias de Participación Ciudadana</h1>
 
-    <article class="entrada-proposito">
+
+<article class="entrada-proposito">
         <div class="imagen">
             <picture>
                 <source srcset="build/img/Concejo.webp" type="image/webp">
@@ -165,6 +165,4 @@
             </a>
         </div>
     </article>
-    
-
 </main>

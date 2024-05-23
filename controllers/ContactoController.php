@@ -6,6 +6,19 @@ use MVC\Router;
 
 class ContactoController
 {
+    public static function administrarcontacto(Router $router)
+    {
+        $contactos = Contacto::all();
+
+        //Muestra mensaje condicional
+        $resultado = $_GET['resultado'] ?? null;
+
+        $router->render('/contactos/administrarContacto', [
+            'contactos' => $contactos,
+            'resultado' => $resultado
+            
+        ]);
+    }
     public static function crear(Router $router)
     {
 
@@ -52,7 +65,7 @@ class ContactoController
 
         $router->render('contactos/actualizar', [
             'errores' => $errores,
-            'contacto' => $contacto,
+            'contacto' => $contacto
         ]);
 
     }

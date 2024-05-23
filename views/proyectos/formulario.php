@@ -3,8 +3,8 @@
     <label for="titulo">Titulo:</label>
     <input type="text" id="titulo" name="proyecto[titulo]" placeholder="Titulo del proyecto" value="<?php echo s($proyecto->titulo); ?>">
 
-    <label for="precio">Precio:</label>
-    <input type="number" id="precio" name="proyecto[precio]" placeholder="Precio del proyecto" value="<?php echo s($proyecto->precio); ?>">
+    <label for="precio">Inversion:</label>
+    <input type="number" id="precio" name="proyecto[precio]" placeholder="Inversion del proyecto" value="<?php echo s($proyecto->precio); ?>">
 
     <label for="imagen">Imagen:</label>
     <input type="file" id="imagen" accept="image/jpeg, image/png" name="proyecto[imagen]">

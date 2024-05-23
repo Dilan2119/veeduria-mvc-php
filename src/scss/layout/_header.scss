@@ -1,9 +1,9 @@
 .no-webp.inicio {
-  background-image: url(../img/headerOscuro.jpg);
+  background-image: url(../img/gobierno.jpg);
 }
 
 .webp .inicio{
-  background-image: url(../img/headerOscuro.webp);
+  background-image: url(../img/gobierno.webp);
   box-shadow: 10px 10px 30px 15px #000000;
  
 }
@@ -31,8 +31,20 @@
 h1{
   text-align: left;
   color: $blanco;
-  font-weight: $bold;
+  font-weight: 900;
+  font-size: 4.5rem;
   line-height: 2;
   max-width: 60rem;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 2px black;
 }
 }
+/* Nueva clase personalizada */
+// @media (min-width: 769px) {
+//   .navbar-expand-md {
+//       flex-wrap: wrap;
+//       justify-content: flex-start;
+//   }
+// }
+
+

@@ -1,6 +1,5 @@
-<main class="contenedor seccion">
-  <h1>Administrador de Proyectos</h1>
-  <?php
+<main class="contenedor seccion s">
+<?php
   if($resultado){
     $mensaje = mostrarNotificacion(intval($resultado));
     if ($mensaje) {?>
@@ -9,72 +8,56 @@
   }
 
 ?>
+<div class="sidebar ">
+    <div class="top">
+      <div class="logo">
+        <i class="bx bxl-codepen"></i>
+        <span>Administrador</span>
+      </div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <div class="user">
+        <img src="../build/img/banderita.jpg" alt="user" class="user-img">
+        <div>
+            <p class="bold">PDM</p>
+            <p>Admin</p>
+        </div>
+    </div>
+    <ul>
+        <li>
+            <a href="proyectos/gestionProyectos">
+                <i class="bx bxs-grid-alt"></i>
+                <span class="nav-item">Gestion de Proyectos</span>
+            </a>
+            <span class="tooltipp">Gestion de Proyectos</span>
+        </li>
+        <li>
+            <a href="contactos/administrarContacto">
+                <i class="bx bx-body"></i>
+                <span class="nav-item">Administrar Contacto</span>
+            </a>
+            <span class="tooltipp">Administrar Contacto</span>
+        </li>
+        <li>
+            <a href="historial/participacionCiudadana">
+                <i class="bx bxs-food-menu"></i>
+                <span class="nav-item">Participacion Ciudadana</span>
+            </a>
+            <span class="tooltipp">Participacion Ciudadana</span>
+        </li>
+        <li>
+            <a href="">
+                <i class="bx bx-log-out"></i>
+                <span class="nav-item">Logout</span>
+            </a>
+            <span class="tooltipp">Logout</span>
+        </li>
+    </ul>
+  </div>
 
-  <a href="/proyectos/crear" class="boton boton-verde">Nuevo proyecto</a>
-  <a href="/contactos/crear" class="boton boton-amarillo">Nuevo(a) contacto</a>
-  
-    <h2>Proyectos</h2>
-  <table class="propiedades">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Titulo</th>
-        <th>Imagen</th>
-        <th>Inversion</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody> <!--. Mostrar los resultados -->
-    <?php foreach ($proyectos as $proyecto): ?>
-        <tr>
-          <td><?php echo $proyecto->id; ?></td>
-          <td><?php echo $proyecto->titulo; ?></td>
-          <td><img src="/imagenes/<?php echo $proyecto->imagen; ?>" alt="error" class="imagen-tabla"></td>
-          <td><?php echo number_format($proyecto->precio, 0, ',', '.'); ?></td>
-          <td>
-            <form method="POST" class="w-100" action="/proyectos/eliminar">
-              <input type="hidden" name="id" value="<?php echo $proyecto->id; ?>">
-              <input type="hidden" name="tipo" value="proyecto">
-              <input type="submit" class="boton-rojo-block" value="Eliminar">
-            </form>
-
-            <a href="/proyectos/actualizar?id=<?php echo $proyecto->id; ?> " class="boton-amarillo-block">Actualizar</a>
-          </td>
-        </tr>
-      <?php endforeach;?>
-    </tbody>
-  </table>
-
-  <h2>Contactos</h2>
-
-  <table class="propiedades">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Nombre</th>
-        <th>Telefono</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody> <!--. Mostrar los resultados -->
-    <?php foreach ($contactos as $contacto): ?>
-        <tr>
-          <td><?php echo $contacto->id; ?></td>
-          <td><?php echo $contacto->nombre . " " . $contacto->apellido; ?></td>
-          <td><?php echo $contacto->telefono; ?></td>
-          <td>
-            <form method="POST" class="w-100" action="/contactos/eliminar">
-              <input type="hidden" name="id" value="<?php echo $contacto->id; ?>">
-              <input type="hidden" name="tipo" value="contacto">
-              <input type="submit" class="boton-rojo-block" value="Eliminar">
-            </form>
-
-            <a href="contactos/actualizar?id=<?php echo $contacto->id; ?>
-            " class="boton-amarillo-block">Actualizar</a>
-          </td>
-        </tr>
-      <?php endforeach;?>
-    </tbody>
-  </table>
- 
+    <div class="main-content">
+        <div class="containerr">
+            
+        </div>
+    </div>
 </main>

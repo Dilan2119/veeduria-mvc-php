@@ -4,8 +4,8 @@
             <img loading="lazy" src="/imagenes/<?php echo $proyecto->imagen; ?>" alt="anuncio" />
 
             <div class="contenido-anuncio">
-                <h3><?php echo $proyecto->titulo; ?></h3>
-                <p><?php echo substr($proyecto->descripcion, 0, 50); ?></p>
+                <h3 class="titulo"><?php echo $proyecto->titulo; ?></h3>
+                <p class="card-description"><?php echo substr($proyecto->descripcion, 0, 100); ?></p>
                 <p class="precio">$<?php echo number_format($proyecto->precio, 0, ',', '.'); ?></p>
 
 

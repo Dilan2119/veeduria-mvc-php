@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   eventListeners();
   darkMode();
+  sidebar();
   //limpiarErrores();
 });
 function elegirModo() {
@@ -104,3 +105,13 @@ function mostrarMetodosContacto(e) {
 //     });
 //   }
 // }
+function sidebar() {
+  let btn = document.querySelector('#btn');
+  let sidebar = document.querySelector('.sidebar');
+
+  if (btn && sidebar) {
+    btn.onclick = function () {
+      sidebar.classList.toggle('active');
+    };
+  }
+}

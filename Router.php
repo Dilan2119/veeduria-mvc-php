@@ -22,7 +22,7 @@ class Router
 
         //Arreglo de rutas protegidas..
         $rutas_protegidas =['/admin','/proyectos/crear','/proyectos/actualizar','/proyectos/eliminar',
-        '/contactos/crear','/contactos/actualizar','/contactos/eliminar'];
+        '/contactos/crear','/contactos/actualizar','/contactos/eliminar', '/proyectos/gestionProyectos'];
 
         $urlActual = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
         $metodo = $_SERVER['REQUEST_METHOD'];

@@ -376,6 +376,10 @@ h4 {
   justify-content: flex-end;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 .boton-amarillo {
   background-color: #E08709;
   color: #FFFFFF;
@@ -383,7 +387,7 @@ h4 {
   text-decoration: none;
   padding: 1rem 3rem;
   text-align: center;
-  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   display: inline-block;
   border: none;
 }
@@ -399,7 +403,7 @@ h4 {
   text-decoration: none;
   padding: 1rem 3rem;
   text-align: center;
-  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   display: block;
   border: none;
 }
@@ -415,11 +419,45 @@ h4 {
   text-decoration: none;
   padding: 1rem 3rem;
   text-align: center;
-  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   display: inline-block;
   border: none;
 }
 .boton-verde:hover {
+  background-color: #619800;
+  cursor: pointer;
+}
+
+.boton-rojo-block {
+  background-color: rgb(189, 7, 7);
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  display: block;
+  border: none;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.boton-rojo-block:hover {
+  background-color: #a40606;
+  cursor: pointer;
+}
+
+.boton-verde-block {
+  background-color: #71B100;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  display: block;
+  border: none;
+}
+.boton-verde-block:hover {
   background-color: #619800;
   cursor: pointer;
 }
@@ -434,36 +472,54 @@ h4 {
 .dark-mode h1,
 .dark-mode h2,
 .dark-mode h3,
-.dark-mode h4, .dark-mode h5 {
+.dark-mode h4,
+.dark-mode h5 {
   color: #e1e1e1;
 }
-.dark-mode .anuncio, .dark-mode .resumen-proyecto {
+.dark-mode .anuncio,
+.dark-mode .resumen-proyecto {
   background-color: #333333;
   border: 1px solid #333333;
 }
-.dark-mode .anuncio .precio, .dark-mode .resumen-proyecto .precio {
+.dark-mode .anuncio .precio,
+.dark-mode .resumen-proyecto .precio {
   color: #71B100;
 }
 .dark-mode .texto-nosotros blockquote {
   color: #FFFFFF;
 }
-.dark-mode .formulario label, .dark-mode .formulario legend, .dark-mode .formulario p {
+.dark-mode .formulario label,
+.dark-mode .formulario legend,
+.dark-mode .formulario p {
   color: #e1e1e1;
 }
 .dark-mode .formulario input:not([type=submit]),
-.dark-mode .formulario textarea, .dark-mode .formulario select {
+.dark-mode .formulario textarea,
+.dark-mode .formulario select {
   background-color: #333333;
   border: 1px solid #333333;
   color: #FFFFFF;
 }
+.dark-mode p,
+.dark-mode th,
+.dark-mode thead,
+.dark-mode tr,
+.dark-mode td {
+  color: #FFFFFF;
+}
+.dark-mode table.propiedades tbody td {
+  color: #FFFFFF;
+  border-bottom: solid 2px #FFFFFF;
+  border-left: solid 8px #1a1a1a;
+}
 
 /** UI **/
 .no-webp.inicio {
-  background-image: url(/veeduriadigital/src/img_Zulia/Header.jpg);
+  background-image: url(../img/Header.jpg);
 }
 
 .webp .inicio {
-  background-image: url(/veeduriadigital/src/img_Zulia/Header.jpg);
+  background-image: url(../img/Header.webp);
   box-shadow: 10px 10px 30px 15px #000000;
 }
 
@@ -517,6 +573,97 @@ h4 {
   text-align: center;
 }
 
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+.b-example-divider {
+  width: 100%;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
+
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.btn-bd-primary {
+  --bd-violet-bg: #712cf9;
+  --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #6528e0;
+  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
+
+.bd-mode-toggle {
+  z-index: 1500;
+}
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+  display: block !important;
+}
+
+.footerd {
+  transition: visibility 0.3s ease-in-out, opacity 0.5s linear, height 0.5s linear;
+}
+.footerd a {
+  margin-right: 5rem;
+}
+.footerd a:hover {
+  color: #71B100;
+  font-size: 2rem;
+  transition: ease 0.2s all;
+}
+
+.nav-link {
+  color: #000;
+}
+
 .derecha {
   display: flex;
   flex-direction: column;
@@ -557,55 +704,21 @@ h4 {
 }
 
 .navegacion {
-  visibility: hidden;
-  opacity: 0;
-  height: 0;
   transition: visibility 0.3s ease-in-out, opacity 0.5s linear, height 0.5s linear;
-}
-@media (min-width: 768px) {
-  .navegacion {
-    display: flex;
-    align-items: center;
-    opacity: 1;
-    visibility: visible;
-  }
 }
 .navegacion a {
   color: #FFFFFF;
   text-decoration: none;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   display: block;
   text-align: center;
-}
-@media (min-width: 768px) {
-  .navegacion a {
-    margin-right: 2rem;
-    font-size: 1.8rem;
-  }
-  .navegacion a:last-of-type {
-    margin-right: 0;
-  }
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombreado al texto */
+  margin-right: 5rem0;
 }
 .navegacion a:hover {
   color: #71B100;
   font-size: 2rem;
   transition: ease 0.2s all;
-}
-
-/** Menu de hamburguesa **/
-@media (min-width: 768px) {
-  .mobile-menu {
-    display: none;
-  }
-}
-.mobile-menu img {
-  width: 5rem;
-}
-
-.mostrar {
-  visibility: visible;
-  opacity: 1;
-  height: auto;
 }
 
 @media (min-width: 768px) {
@@ -628,8 +741,9 @@ h4 {
 @media (min-width: 768px) {
   .contenedor-anuncios {
     display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: minmax(0, auto) minmax(0, auto) minmax(0, auto);
+    grid-template-rows: minmax(0, auto);
+    gap: 1rem;
   }
 }
 .anuncio {
@@ -640,8 +754,10 @@ h4 {
 .anuncio .contenido-anuncio {
   padding: 2rem;
 }
-.anuncio h3, .anuncio p {
+.anuncio h3,
+.anuncio p {
   margin: 0;
+  word-wrap: break-word;
 }
 
 .precio {
@@ -665,29 +781,31 @@ h4 {
 }
 
 .no-webp .imagen-contacto {
-  background-image: url(/veeduriadigital/build/img_Zulia/banner1.2.jpg);
+  background-image: url(../img/banner1.2.jpg);
 }
 
 .webp .imagen-contacto {
-  background-image: url(/veeduriadigital/build/img_Zulia/banner1.2.webp);
+  background-image: url(../img/banner1.2.webp);
 }
 
 .imagen-contacto {
   background-position: center center;
   background-size: cover;
-  padding: 10rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 10px 10px 30px 15px #000000;
 }
 .imagen-contacto h2 {
   font-size: 4rem;
   font-weight: 900;
-  color: #FFFFFF;
+  color: #E08709;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
 .imagen-contacto p {
-  font-size: 1.8rem;
-  color: #FFFFFF;
+  font-size: 2.8rem;
+  color: #E08709;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 768px) {
@@ -805,6 +923,32 @@ textarea {
   width: auto;
 }
 
+.s {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.s ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.user-img {
+  width: 50px;
+  border-radius: 100%;
+  border: 1px solid #eee;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #12171e;
+}
+
 /**Paginas Internas**/
 @media (min-width: 768px) {
   .contenido-nosotros {
@@ -834,4 +978,54 @@ textarea {
 }
 .alerta.exito {
   background-color: #71B100;
+}
+
+table.propiedades {
+  margin-top: 4rem;
+  width: 100%;
+  border-spacing: 0;
+}
+table.propiedades thead {
+  background-color: #71B100;
+}
+table.propiedades thead th {
+  color: #FFFFFF;
+  padding: 2rem;
+  border-left: 1px solid #000000;
+}
+table.propiedades thead th:first-child {
+  border-left: unset;
+}
+table.propiedades tbody td {
+  text-align: center;
+  border-bottom: solid 2px #000000;
+  border-left: solid 8px #FFFFFF;
+  height: 18rem;
+  font-size: 1.8rem;
+}
+table.propiedades tbody td:first-child {
+  font-weight: 700;
+  color: #71B100;
+  border-bottom: solid 2px #71B100;
+}
+table.propiedades tbody td:nth-child(2) {
+  text-transform: uppercase;
+}
+table.propiedades tbody td:last-child {
+  padding: 1rem 0;
+}
+table.propiedades tbody td:last-child a {
+  margin: 0;
+  width: 100%;
+}
+table.propiedades tbody td:last-child a:first-child {
+  margin-bottom: 1rem;
+}
+table.propiedades .imagen-tabla {
+  width: 20rem;
+  margin: 0 auto;
+}
+
+.imagen-small {
+  max-width: 20rem;
 }/*# sourceMappingURL=app.css.map */

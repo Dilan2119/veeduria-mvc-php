@@ -3,6 +3,7 @@ namespace Controllers;
 
 use Model\Historial;
 use Model\Proyecto;
+use Model\ProyectosEjecucion;
 use MVC\Router;
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -12,11 +13,13 @@ class PaginasController
     {
 
         $proyectos = Proyecto::get(3);
+        $proyectos_ejecucion = ProyectosEjecucion::get(3);
         $inicio = true;
 
         $router->render('paginas/index', [
 
             'proyectos' => $proyectos,
+            'proyectos_ejecucion' => $proyectos_ejecucion,
             'inicio' => $inicio,
 
         ]);
@@ -30,9 +33,26 @@ class PaginasController
     {
 
         $proyectos = Proyecto::all();
+        $proyectos_ejecucion = ProyectosEjecucion::all();
+        
 
         $router->render('paginas/proyectos', [
             'proyectos' => $proyectos,
+            'proyectos_ejecucion' => $proyectos_ejecucion,
+
+            
+
+        ]);
+    }
+    public static function proyectos_ejecucion(Router $router)
+    {
+
+        $id = validarORedireccionar('/proyectos');
+        $proyectos_ejecucion  = ProyectosEjecucion::find($id);
+
+        $router->render('paginas/proyectos_ejecucion', [
+            
+            'proyectos_ejecucion' => $proyectos_ejecucion,
 
         ]);
     }
@@ -43,9 +63,11 @@ class PaginasController
 
         //Buscar la propiedad por su id
         $proyecto = Proyecto::find($id);
+        
 
         $router->render('paginas/proyecto', [
             'proyecto' => $proyecto,
+            
 
         ]);
     }

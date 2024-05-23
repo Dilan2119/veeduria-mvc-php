@@ -3,9 +3,13 @@
       <?php include 'iconos.php';?>
     </main>
     <section class="seccion contenedor">
-      <h2>Proyectos en Ejecucion</h2>
+      <h2 class="titulo">Proyectos en Ejecución</h2>
 
+      <?php
+      include 'listado2.php';
+      ?>
 
+      <h2 class="titulo">Proyectos en Formulación</h2>
       <?php
       include 'listado.php';
       ?>
@@ -27,7 +31,7 @@
 
     <div class="contenedor seccion seccion-inferior">
       <section class="proposito">
-        <h3>Proposito</h3>
+        <h3 class="abajo">Propósito</h3>
         <article class="entrada-proposito">
           <div class="imagen">
             <picture>
@@ -64,7 +68,7 @@
         </article>
       </section>
       <section class="Testimoniales">
-        <h3>Testimoniales</h3>
+        <h3 class="abajo">Testimoniales</h3>
         <div class="testimonial">
           <blockquote>
             La veeduría ciudadana es la columna vertebral de la democracia, el

@@ -6,27 +6,64 @@
     grid-template-rows: minmax(0, auto);
     gap: 1rem;
   }
+  .anuncio{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .anuncio img{
+    height: 200px;
+    overflow: hidden;
+  }
+  .contenido-anuncio{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-description{
+    flex-grow: 1;
+  }
+}
+//  new
+.contenedor-anuncios{
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+.anuncio img{
+  border-radius: 8px 8px 0 0;
 }
 
+
+//aqui termina
 .anuncio {
   background-color: lighten($gris, 5);
   border: 1px solid lighten($gris, 10);
   margin-bottom: 2rem;
+  border-radius: 8px;
 
-  .contenido-anuncio {
+  .contenido-anuncio  {
     padding: 2rem;
+    
   }
 
   h3,
   p {
     margin: 0;
     word-wrap: break-word;
+    
+    
     //overflow-wrap: break-word;
+  }
+  h3{
+    font-weight: 900;
+    margin-bottom: 3rem;
+    font-size: 2.3rem;
   }
 }
 .precio {
   color: $verde;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 3rem;
 }
 .iconos-caracteristicas {
@@ -42,6 +79,24 @@
     flex: 0 0 3rem;
     margin-right: 1rem;
   }
-  
+}
+.progress{
+  --bs-progress-height: 2rem;
+  margin-bottom: 1rem;
+}
 
+.fecha{
+  color: $gris;
+  background-color: #77dd77;
+  font-size: 3rem;
+  font-weight: 900;
+  -webkit-text-stroke: 2px #000;
+  text-align: center;
+}
+.titulo{
+  font-weight: 900;
+  color: #fb8500;
+}
+.abajo{
+  font-weight: 900;
 }

@@ -8,11 +8,14 @@
 
 .entrada-proposito {
   margin-bottom: 2rem;
+  // margin-top: 7rem;
+  // margin-left: 5rem;
 
   @include tablet {
     display: grid;
     grid-template-columns: 1fr 2fr;
     column-gap: 2rem;
+    
   }
   &:last-of-type {
     margin-bottom: 0;

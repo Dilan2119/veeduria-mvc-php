@@ -34,7 +34,7 @@ function s($html): string
 //Validar tipo de contenido
 function validarTipoContenido($tipo)
 {
-    $tipos = ['contacto', 'proyecto'];//agregando historial
+    $tipos = ['contacto', 'proyecto', 'proyectos_ejecucion', 'historial'];//agregando historial
     return in_array($tipo, $tipos);
 }
 //Muestra los mensajes

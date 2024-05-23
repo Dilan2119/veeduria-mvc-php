@@ -7,7 +7,7 @@
 
 
     <div class="resumen-proyecto anuncio">
-      <p class="precio">$<?php echo $proyecto->precio; ?></p>
+      <p class="precio">$<?php echo number_format($proyecto->precio, 0, ',', '.'); ?></p>
 
       <p> <?php echo $proyecto->descripcion; ?></p>
     </div>
