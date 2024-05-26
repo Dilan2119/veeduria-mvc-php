@@ -46,7 +46,7 @@
             <span class="tooltipp">Participacion Ciudadana</span>
         </li>
         <li>
-            <a href="">
+            <a href="/logout">
                 <i class="bx bx-log-out"></i>
                 <span class="nav-item">Logout</span>
             </a>
