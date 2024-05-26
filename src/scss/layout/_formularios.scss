@@ -40,3 +40,12 @@ textarea{
         width: auto;
     }
 }
+.casilla{
+    padding: 1rem ;
+    display: block;
+    width: 100%;
+    background-color: $blanco;
+    border: 1px solid #ffb703;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}

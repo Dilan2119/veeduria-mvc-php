@@ -20,6 +20,9 @@
   &:last-of-type {
     margin-bottom: 0;
   }
+  img{
+    margin-top: 20px;
+  }
 }
 .texto-entrada {
   a {
@@ -33,6 +36,7 @@
   h4 {
     margin: 0;
     line-height: 1.4;
+    margin-top: 20px;
 
     &::after {
       content: "";
@@ -46,4 +50,5 @@
   span {
     color: $amarillo;
   }
+ 
 }

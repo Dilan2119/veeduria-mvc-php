@@ -1,6 +1,7 @@
 <?php
 namespace Controllers;
 
+use Model\Contacto;
 use Model\Historial;
 use Model\Proyecto;
 use Model\ProyectosEjecucion;
@@ -73,7 +74,15 @@ class PaginasController
     }
     public static function HistorialParticipativo(Router $router)
     {
-        $router->render('paginas/HistorialParticipativo');
+
+        $historial = Historial::all();
+        $contacto = Contacto::all();
+        $router->render('paginas/HistorialParticipativo',[
+
+            'historial' => $historial,
+            'contacto' => $contacto,
+            
+        ]);
     }
     public static function informar(Router $router)
     {
@@ -100,6 +109,11 @@ class PaginasController
             $mail->setFrom('plandedesarrolloelzulia2427@gmail.com');
             $mail->addAddress('plandedesarrolloelzulia2427@gmail.com', 'VeeduriaDigital');
             $mail->Subject = 'Tienes un Nuevo Mensaje';
+
+            // Adjuntar archivo si se ha proporcionado
+        if(!empty($_FILES['adjunto']['tmp_name']) && is_uploaded_file($_FILES['adjunto']['tmp_name'])) {
+            $mail->addAttachment($_FILES['adjunto']['tmp_name'], $_FILES['adjunto']['name']);
+        }
 
             //Habilitar HTML
             $mail->isHTML(true);
@@ -129,12 +143,13 @@ class PaginasController
             $contenido .= '<p>Estado del Proyecto: ' . $respuestas['tipo'] . '</p>';
             $contenido .= '<p>Mensaje: ' . $respuestas['mensaje'] . '</p>';
             $contenido .= '<p>Prefiere ser contactado por: ' . $respuestas['contacto'] . '</p>';
-           
+            
             $contenido .= '</html>';
 
             $mail->Body = $contenido;
             $mail->AltBody = 'Esto es texto alternativo sin HTML';
-
+            
+            
             //Envial el email
             if ($mail->send()) {
                 $mensaje = "Mensaje enviado Correctamente";

@@ -1,7 +1,7 @@
 <main class="contenedor seccion">
     <h1>Registrar Contacto </h1>
 
-    <a href="/proyectos/gestionProyectos" class="boton boton-verde">Volver</a>
+    <a href="/contactos/administrarContacto" class="boton boton-verde">Volver</a>
 
     <?php foreach ($errores as $error) : ?>
         <div class="alerta error">

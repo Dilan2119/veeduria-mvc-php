@@ -1,6 +1,5 @@
 <main class="contenedor seccion">
-    <h1>Actualizar Contacto </h1>
-    <a href="/contactos/administrarContacto" class="boton boton-verde">volver</a>
+    <h1>Actualizar Proyecto </h1>
 
     <?php foreach ($errores as $error) : ?>
         <div class="alerta error">
@@ -8,11 +7,11 @@
         </div>
     <?php endforeach; ?>
 
-    <form class="formulario" method="POST" >
-       
-    <?php include 'formulario.php' ?>
+    <a href="/contactos/administrarContacto" class="boton boton-verde">Volver</a>
 
-        <input type="submit" value="Guardar cambios" class="boton boton-verde">
-
+    <form class="formulario" method="POST" enctype="multipart/form-data">
+    <?php include __DIR__. '/formulario.php';?>
+    <input type="submit" value="Actualizar Proyecto" class="boton boton-verde">
     </form>
+    
 </main>

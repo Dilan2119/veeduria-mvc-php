@@ -10,7 +10,7 @@
 
   ?>
   <a href="/admin" class="boton boton-amarillo">Volver</a>
-  <a href="/proyectos/crear" class="boton boton-verde">Nuevo proyecto</a>
+  <a href="/historial/crear" class="boton boton-verde">Nueva Mesa</a>
 
 
 
@@ -33,13 +33,13 @@
           <td><img src="/imagenes/<?php echo $proyecto->imagen; ?>" alt="error" class="imagen-tabla"></td>
           <td><?php echo $proyecto->fecha_inicio ?></td>
           <td>
-            <form method="POST" class="w-100" action="/proyectos/eliminar">
+            <form method="POST" class="w-100" action="/historial/eliminar">
               <input type="hidden" name="id" value="<?php echo $proyecto->id; ?>">
               <input type="hidden" name="tipo" value="proyecto">
               <input type="submit" class="boton-rojo-block" value="Eliminar">
             </form>
 
-            <a href="/proyectos/actualizar?id=<?php echo $proyecto->id; ?> " class="boton-amarillo-block">Actualizar</a>
+            <a href="/historial/actualizar?id=<?php echo $proyecto->id; ?> " class="boton-amarillo-block">Actualizar</a>
           </td>
         </tr>
       <?php endforeach; ?>

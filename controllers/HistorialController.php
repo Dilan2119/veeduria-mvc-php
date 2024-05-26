@@ -72,8 +72,8 @@ class HistorialController
             }
         }
        
-        $router->render('/proyectos_ejecucion/crear', [
-            'proyectos_ejecucion' => $proyectos_ejecucion,
+        $router->render('/historial/crear', [
+            'historial' => $historial,
             'contactos' => $contactos,
             'errores' => $errores
         ]);
@@ -83,49 +83,46 @@ class HistorialController
 
     public static function actualizar(Router $router)
     {
-       $id = validarORedireccionar('/admin');
-       $proyectos_ejecucion = ProyectosEjecucion::find($id);
-
-       $contactos = Contacto::all();
-
-       $errores = ProyectosEjecucion::getErrores();
-
-
-
-       //Metodo POST para actualizar
+        $id = validarORedireccionar('/admin');
+        $historial = Historial::find($id);
+        $contactos = Contacto::all();
+        $errores = Historial::getErrores();
+    
+        // Método POST para actualizar
+       
        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
         //Asignar los atributos
-        $args =$_POST['proyectos_ejecucion'];
+        $args =$_POST['historial'];
     
-        $proyectos_ejecucion->sincronizar($args);
+        $historial->sincronizar($args);
         
         //Validacion
-        $errores = $proyectos_ejecucion->validar();
+        $errores = $historial->validar();
         //Subida de archivos
         //Generar un nombre unico
         $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
     
-        if ($_FILES['proyectos_ejecucion']['tmp_name']['imagen']) {
-            $image = Image::make($_FILES['proyectos_ejecucion']['tmp_name']['imagen'])->fit(800, 600);
-            $proyectos_ejecucion->setImagen($nombreImagen);
+        if ($_FILES['historial']['tmp_name']['imagen']) {
+            $image = Image::make($_FILES['historial']['tmp_name']['imagen'])->fit(800, 600);
+            $historial->setImagen($nombreImagen);
             
         }  
         if (empty($errores)) {
             //Almacenar la imagen
-            if ($_FILES['proyectos_ejecucion']['tmp_name']['imagen']) {
+            if ($_FILES['historial']['tmp_name']['imagen']) {
             $image->save(CARPETA_IMAGENES . $nombreImagen);
             }
-            $proyectos_ejecucion->guardar();
+            $historial->guardar();
         }
         
     }
-
-       $router->render('/proyectos_ejecucion/actualizar', [
-        'proyectos_ejecucion' => $proyectos_ejecucion,
-        'errores' => $errores,
-        'contactos' => $contactos
-       ]);
+    
+        $router->render('/historial/actualizar', [
+            'historial' => $historial,
+            'errores' => $errores,
+            'contactos' => $contactos
+        ]);
     }
 
     public static function eliminar(){
@@ -139,8 +136,8 @@ class HistorialController
                 $tipo = $_POST['tipo'];
         
                 if (validarTipoContenido($tipo)) {
-                    $proyectos_ejecucion = ProyectosEjecucion::find($id);
-                    $proyectos_ejecucion->eliminar();
+                    $historial = Historial::find($id);
+                    $historial->eliminar();
                 }
             }
         }

@@ -16,8 +16,8 @@
 </fieldset>
 
 <fieldset>
-    <legend>Progreso del Proyecto</legend>
-    <label for="fecha_inicio">Fecha de Inicio:</label>
+    <legend>Fecha de la reunion</legend>
+    <label for="fecha_inicio">Fecha:</label>
     <input type="date" id="fecha_inicio" name="historial[fecha_inicio]" value="<?php echo s($historial->fecha_inicio); ?>">
 
 </fieldset>

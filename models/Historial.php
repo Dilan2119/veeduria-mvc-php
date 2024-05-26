@@ -53,4 +53,6 @@ class historial extends ActiveRecord
     
         return self::$errores;
     }
+  
+
 }
