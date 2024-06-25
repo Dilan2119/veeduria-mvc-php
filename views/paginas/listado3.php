@@ -9,7 +9,7 @@
         </div>
 
         <div class="texto-entrada">
-            <a href="/HistorialParticipativo">
+            <a href="/historia?id=<?php echo $historia->id; ?>">
                 <h4 class="titulo"><?php echo $historia->titulo; ?></h4>
                 <p>Realizada el : <span><?php echo $historia->fecha_inicio; ?></span> por: <span>
                 <?php
@@ -33,6 +33,7 @@
             </a>
         </div>
         <?php } ?>
+        
     </article>
 
 

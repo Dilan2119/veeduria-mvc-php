@@ -11,6 +11,13 @@
 
     <?php } ?>
 
+    <label for="documento">Documento:</label>
+    <input type="file" id="documento" accept=".pdf,.doc,.docx" name="historial[documento]">
+
+    <?php if ($historial->documento) { ?>
+        <p>Documento actual: <?php echo $historial->documento; ?></p>
+    <?php } ?>
+
     <label for="descripcion">Descripcion:</label>
     <textarea id="descripcion" name="historial[descripcion]"><?php echo s($historial->descripcion); ?></textarea>
 </fieldset>

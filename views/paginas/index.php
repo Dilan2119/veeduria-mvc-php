@@ -26,7 +26,7 @@
         Completa el formulario  para compartir tus inquietudes o
         reportar cualquier anomalía.
       </p>
-      <a href="/informar" class="boton-amarillo">Denuncie</a>
+      <a href="/informar" class="boton-amarillo">Informe</a>
     </section>
 
     <div class="contenedor seccion seccion-inferior">

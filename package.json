@@ -5,12 +5,15 @@
   "main": "gulpfile.js",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "author": "Dilan Bulding Quintero",
   "license": "ISC",
   "devDependencies": {
     "cssnano": "^5.1.0",
+    "cypress": "^13.10.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-cache": "^1.1.3",

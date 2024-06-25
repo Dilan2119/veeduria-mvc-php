@@ -115,3 +115,46 @@ function sidebar() {
     };
   }
 }
+document.addEventListener("DOMContentLoaded", function() {
+  const buscador = document.getElementById("buscador");
+  const mensajeBusqueda = document.getElementById("mensaje-busqueda");
+  const titulosSecciones = document.querySelectorAll(".titulo-seccion");
+  const contenedorAnuncios = document.querySelector(".contenedor-anuncios");
+
+  buscador.addEventListener("keyup", function(e) {
+      const busqueda = this.value.toLowerCase().trim();
+      let proyectosEncontrados = 0;
+
+      document.querySelectorAll(".anuncio").forEach(proyecto => {
+          const titulo = proyecto.querySelector(".titulo");
+          if (titulo) {
+              if (busqueda === "" || titulo.textContent.toLowerCase().includes(busqueda)) {
+                  proyecto.style.display = "";
+                  titulo.classList.toggle("resaltarColor", busqueda !== "");
+                  proyectosEncontrados++;
+              } else {
+                  proyecto.style.display = "none";
+                  titulo.classList.remove("resaltarColor");
+              }
+          }
+      });
+
+      // Ajustar el grid
+      contenedorAnuncios.style.gridTemplateColumns = proyectosEncontrados > 0 ? "repeat(auto-fill, minmax(300px, 1fr))" : "1fr";
+
+      // Mostrar o ocultar el mensaje de búsqueda y los títulos de sección
+      if (proyectosEncontrados === 0 && busqueda !== "") {
+          mensajeBusqueda.style.display = "block";
+          titulosSecciones.forEach(titulo => titulo.style.display = "none");
+      } else {
+          mensajeBusqueda.style.display = "none";
+          titulosSecciones.forEach(titulo => titulo.style.display = "");
+      }
+
+      // Limpiar la búsqueda si se presiona Escape
+      if (e.key === "Escape") {
+          this.value = "";
+          this.dispatchEvent(new Event('keyup'));
+      }
+  });
+});

@@ -86,17 +86,19 @@ class PaginasController
     }
     public static function informar(Router $router)
     {
-
         $mensaje = null;
-
+        
+        // Obtener todos los proyectos
+        $proyectos = Proyecto::all();
+        $proyectos_ejecucion = ProyectosEjecucion::all();
+    
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $respuestas = $_POST['informar'];
-           // debuguear($respuestas);
-            //Crear una instancia de PHPMailer
+            
+            // Crear una instancia de PHPMailer
             $mail = new PHPMailer();
-
-            //Configurar SMTP
+    
+            // Configurar SMTP
             $mail->isSMTP();
             $mail->Host = $_ENV['EMAIL_HOST'];
             $mail->SMTPAuth = true;
@@ -104,63 +106,79 @@ class PaginasController
             $mail->Username = $_ENV['EMAIL_USER'];
             $mail->Password = $_ENV['EMAIL_PASS'];
             $mail->SMTPSecure = 'tls';
-
-            //Configurando el cntenido del email
+    
+            // Configurando el contenido del email
             $mail->setFrom('plandedesarrolloelzulia2427@gmail.com');
             $mail->addAddress('plandedesarrolloelzulia2427@gmail.com', 'VeeduriaDigital');
             $mail->Subject = 'Tienes un Nuevo Mensaje';
-
+    
             // Adjuntar archivo si se ha proporcionado
-        if(!empty($_FILES['adjunto']['tmp_name']) && is_uploaded_file($_FILES['adjunto']['tmp_name'])) {
-            $mail->addAttachment($_FILES['adjunto']['tmp_name'], $_FILES['adjunto']['name']);
-        }
-
-            //Habilitar HTML
+            if(!empty($_FILES['adjunto']['tmp_name']) && is_uploaded_file($_FILES['adjunto']['tmp_name'])) {
+                $mail->addAttachment($_FILES['adjunto']['tmp_name'], $_FILES['adjunto']['name']);
+            }
+    
+            // Habilitar HTML
             $mail->isHTML(true);
             $mail->CharSet = 'UTF-8';
-
-            //Definir el contenidoo
+    
+            // Definir el contenido
             $contenido = '<html>';
             $contenido .= '<p>Tienes un nuevo mensaje</p>';
             $contenido .= '<p>Nombre: ' . $respuestas['nombre'] . '</p>';
-            
-
-            //Enviar de forma condicionar algunos campos de email o telefono
-
+    
+            // Buscar el proyecto seleccionado
+            $proyecto_id = $respuestas['proyecto_id'];
+            $proyecto = null;
+            foreach ($proyectos as $p) {
+                if ($p->id == $proyecto_id) {
+                    $proyecto = $p;
+                    break;
+                }
+            }
+            if (!$proyecto) {
+                foreach ($proyectos_ejecucion as $p) {
+                    if ($p->id == $proyecto_id) {
+                        $proyecto = $p;
+                        break;
+                    }
+                }
+            }
+    
+            if ($proyecto) {
+                $contenido .= '<p>Proyecto seleccionado: ' . $proyecto->titulo . '</p>';
+            }
+    
+            // Enviar de forma condicional algunos campos de email o teléfono
             if($respuestas['contacto'] === 'telefono'){
-                $contenido .= '<p>Eligio ser contactado por telefono: </p>';
-                $contenido .= '<p>Telefono: ' . $respuestas['telefono'] . '</p>';
+                $contenido .= '<p>Eligió ser contactado por teléfono: </p>';
+                $contenido .= '<p>Teléfono: ' . $respuestas['telefono'] . '</p>';
                 $contenido .= '<p>Fecha Contacto: ' . $respuestas['fecha'] . '</p>';
                 $contenido .= '<p>Hora: ' . $respuestas['hora'] . '</p>';
-
-            }else{
-                //Es email, entonces agregamos el campo de email
-                $contenido .= '<p>Eligio ser contactado por email: </p>';
+            } else {
+                $contenido .= '<p>Eligió ser contactado por email: </p>';
                 $contenido .= '<p>Email: ' . $respuestas['email'] . '</p>';
-
             }
             
-            $contenido .= '<p>Estado del Proyecto: ' . $respuestas['tipo'] . '</p>';
             $contenido .= '<p>Mensaje: ' . $respuestas['mensaje'] . '</p>';
             $contenido .= '<p>Prefiere ser contactado por: ' . $respuestas['contacto'] . '</p>';
             
             $contenido .= '</html>';
-
+    
             $mail->Body = $contenido;
             $mail->AltBody = 'Esto es texto alternativo sin HTML';
             
-            
-            //Envial el email
+            // Enviar el email
             if ($mail->send()) {
-                $mensaje = "Mensaje enviado Correctamente";
+                $mensaje = "Mensaje enviado correctamente";
             } else {
-                $mensaje =  "El mensaje no se pudo enviar...";
+                $mensaje = "El mensaje no se pudo enviar...";
             }
-
         }
-
+    
         $router->render('paginas/informar', [
-            'mensaje' => $mensaje
+            'mensaje' => $mensaje,
+            'proyectos' => $proyectos,
+            'proyectos_ejecucion' => $proyectos_ejecucion
         ]);
     }
     public static function HistorialPController( Router $router ) {
@@ -174,14 +192,14 @@ class PaginasController
         
         }
         
-        public static function entrada( Router $router ) {
+        public static function historia( Router $router ) {
         
         //$router->render('paginas/entrada');
         $id = validarORedireccionar('/HistorialParticipativo');
         
         // Obtener los datos de la propiedad
         $historial = Historial::find($id);
-        $router->render('paginas/historial', [
+        $router->render('paginas/historia', [
         'historial' => $historial
         
         ]);

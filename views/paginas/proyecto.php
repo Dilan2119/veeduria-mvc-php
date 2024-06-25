@@ -1,7 +1,7 @@
 <main class="contenedor seccion contenido-centrado">
 
 
-    <h1><?php echo $proyecto->titulo; ?></h1>
+    <h1 class="titulo"><?php echo $proyecto->titulo; ?></h1>
 
     <img loading="lazy" src="/imagenes/<?php echo $proyecto->imagen; ?>" alt="imagen del proyecto" />
 

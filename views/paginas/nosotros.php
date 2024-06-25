@@ -1,5 +1,5 @@
 <main class="contenedor seccion">
-      <h1>Conoce Sobre Nosotros</h1>
+      <h1 class="titulo">Conoce Sobre Nosotros</h1>
       <div class="contenido-nosotros">
         <div class="imagen">
           <picture>

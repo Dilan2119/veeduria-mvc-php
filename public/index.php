@@ -48,7 +48,7 @@ $router->get('/proyecto', [PaginasController::class, 'proyecto']);
 $router->get('/proyectos', [PaginasController::class, 'proyectos']);
 $router->get('/proyectos_ejecucion', [PaginasController::class, 'proyectos_ejecucion']);
 $router->get('/HistorialParticipativo', [PaginasController::class, 'HistorialParticipativo']);
-$router->get('/entrada', [PaginasController::class, 'HistorialParticipativo']);
+$router->get('/historia', [PaginasController::class, 'historia']);
 $router->get('/informar', [PaginasController::class, 'informar']);
 $router->post('/informar', [PaginasController::class, 'informar']);
 

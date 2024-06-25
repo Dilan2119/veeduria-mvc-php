@@ -28,50 +28,51 @@ class HistorialController
 
     public static function crear(Router $router)
     {
-
         $historial = new Historial();
         $contactos = Contacto::all();
-
-        //Arreglo con mensajes de errores 
-
         $errores = Historial::getErrores();
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-            /**Crea una nueva instancia */
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $historial = new Historial($_POST['historial']);
-            //Generar un nombre unico
+    
+            // Manejo de la imagen
             $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
-        
-            //Setear la imagen
-            //Realiza un resize a la imagen con intervention
             if ($_FILES['historial']['tmp_name']['imagen']) {
                 $image = Image::make($_FILES['historial']['tmp_name']['imagen'])->fit(800, 600);
                 $historial->setImagen($nombreImagen);
             }
-        
-            //Validar
-            $errores = $historial->validar();
-        
-            //Revisar que el array de errores este vacio
-            if (empty($errores)) {
-        
-                /**Subida de archivos */
-                //Crear la carpeta de imagenes
-        
-                if (!is_dir(CARPETA_IMAGENES)) {
-                mkdir(CARPETA_IMAGENES);
+    
+            // Manejo del documento
+            if ($_FILES['historial']['tmp_name']['documento']) {
+                $nombreDocumento = md5(uniqid(rand(), true)) . "_" . $_FILES['historial']['name']['documento'];
+                $historial->setDocumento($nombreDocumento);
             }
-                //Guardar la imagen en el servidor
-                $image->save(CARPETA_IMAGENES . $nombreImagen);
-        
-                //gUARDAR EN LA BASE DE DATOS
+    
+            $errores = $historial->validar();
+    
+            if (empty($errores)) {
+                // Crear carpetas si no existen
+                if (!is_dir(CARPETA_IMAGENES)) {
+                    mkdir(CARPETA_IMAGENES);
+                }
+                if (!is_dir(CARPETA_DOCUMENTOS)) {
+                    mkdir(CARPETA_DOCUMENTOS);
+                }
+    
+                // Guardar la imagen
+                if ($_FILES['historial']['tmp_name']['imagen']) {
+                    $image->save(CARPETA_IMAGENES . $nombreImagen);
+                }
+    
+                // Guardar el documento
+                if ($_FILES['historial']['tmp_name']['documento']) {
+                    move_uploaded_file($_FILES['historial']['tmp_name']['documento'], CARPETA_DOCUMENTOS . $nombreDocumento);
+                }
+    
                 $historial->guardar();
-        
-                
             }
         }
-       
+    
         $router->render('/historial/crear', [
             'historial' => $historial,
             'contactos' => $contactos,
@@ -88,35 +89,42 @@ class HistorialController
         $contactos = Contacto::all();
         $errores = Historial::getErrores();
     
-        // Método POST para actualizar
-       
-       if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-        //Asignar los atributos
-        $args =$_POST['historial'];
-    
-        $historial->sincronizar($args);
-        
-        //Validacion
-        $errores = $historial->validar();
-        //Subida de archivos
-        //Generar un nombre unico
-        $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
-    
-        if ($_FILES['historial']['tmp_name']['imagen']) {
-            $image = Image::make($_FILES['historial']['tmp_name']['imagen'])->fit(800, 600);
-            $historial->setImagen($nombreImagen);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Asignar los atributos
+            $args = $_POST['historial'];
+            $historial->sincronizar($args);
             
-        }  
-        if (empty($errores)) {
-            //Almacenar la imagen
+            // Validación
+            $errores = $historial->validar();
+    
+            // Subida de archivos
+            // Manejo de la imagen
             if ($_FILES['historial']['tmp_name']['imagen']) {
-            $image->save(CARPETA_IMAGENES . $nombreImagen);
+                $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+                $image = Image::make($_FILES['historial']['tmp_name']['imagen'])->fit(800, 600);
+                $historial->setImagen($nombreImagen);
             }
-            $historial->guardar();
+    
+            // Manejo del documento
+            if ($_FILES['historial']['tmp_name']['documento']) {
+                $nombreDocumento = md5(uniqid(rand(), true)) . "_" . $_FILES['historial']['name']['documento'];
+                $historial->setDocumento($nombreDocumento);
+            }
+    
+            if (empty($errores)) {
+                // Almacenar la imagen
+                if ($_FILES['historial']['tmp_name']['imagen']) {
+                    $image->save(\CARPETA_IMAGENES . $nombreImagen);
+                }
+    
+                // Almacenar el documento
+                if ($_FILES['historial']['tmp_name']['documento']) {
+                    move_uploaded_file($_FILES['historial']['tmp_name']['documento'], \CARPETA_DOCUMENTOS . $nombreDocumento);
+                }
+    
+                $historial->guardar();
+            }
         }
-        
-    }
     
         $router->render('/historial/actualizar', [
             'historial' => $historial,
